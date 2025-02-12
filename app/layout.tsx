@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-
+import { Space_Mono, Silkscreen } from 'next/font/google';
+import { Navbar1 } from "@/components/ui/navbar1";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -10,6 +11,20 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const spaceMono = Space_Mono({
+  subsets: ['latin'],
+  weight: ['400', '700'],
+  display: 'swap',
+  variable: '--font-space-mono',
+});
+
+const silkscreen = Silkscreen({
+  subsets: ['latin'],
+  weight: '400',
+  display: 'swap',
+  variable: '--font-silkscreen',
 });
 
 export const metadata: Metadata = {
@@ -24,9 +39,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} ${spaceMono.variable} ${silkscreen.variable} font-sans`}>
+        <Navbar1 />
         {children}
       </body>
     </html>
