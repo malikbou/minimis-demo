@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Space_Mono, Silkscreen } from 'next/font/google';
 import { Navbar1 } from "@/components/ui/navbar1";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -39,9 +40,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${spaceMono.variable} ${silkscreen.variable} font-sans`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${spaceMono.variable} ${silkscreen.variable} font-sans bg-indigo-50/50`}>
         <Navbar1 />
-        {children}
+        <main className="min-h-screen">
+          {children}
+        </main>
       </body>
     </html>
   );

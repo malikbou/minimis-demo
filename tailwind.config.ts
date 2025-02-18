@@ -17,6 +17,7 @@ const config = {
       fontFamily: {
         sans: ['var(--font-space-mono)'],
         display: ['var(--font-silkscreen)'],
+        mono: ['var(--font-space-mono)'],
       },
     },
   },

@@ -5,31 +5,31 @@ import { ChartDemo } from "@/components/ui/chart-demo";
 import { Container } from "@/components/ui/container";
 import { aiModels } from "@/data/models";
 import { ModelCard } from "@/components/ui/model-card";
+import { Hero } from "@/components/ui/hero";
+import { ModelsSection } from "@/components/sections/models-section";
+import { ModelsCarousel } from "@/components/sections/models-carousel";
 
-export default function Home() {
+const heroContent = {
+  heading: "Explore AI Models and Community Creations",
+  description: "Discover and experiment with optimized AI models. A curated collection of efficient implementations for various AI tasks.",
+  image: {
+    src: "/images/hero.jpeg",
+    alt: "AI Model Hero Image"
+  }
+};
+
+export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-8 md:py-12 lg:py-16">
-        <Container>
-          <div className="text-center">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">Welcome to Minimis AI</h1>
-            <p className="text-lg md:text-xl text-gray-600 mt-4">Explore AI models and community creations.</p>
-          </div>
-        </Container>
-      </section>
+      <Hero {...heroContent} />
 
-      {/* AI Models Section */}
-      <section className="py-8 md:py-12">
-        <Container>
-          <h2 className="text-2xl md:text-3xl font-semibold mb-4">AI Models</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {aiModels.map((model) => (
-              <ModelCard key={model.slug} model={model} />
-            ))}
-          </div>
-        </Container>
-      </section>
+      {/* Models Section */}
+      <ModelsCarousel
+        heading="AI Models"
+        demoUrl="https://github.com/malikbou/minimis-demo"
+        models={aiModels}
+      />
 
       {/* Community Creations Section */}
       <section className="py-8 md:py-12">
@@ -49,28 +49,6 @@ export default function Home() {
               </CardContent>
             </Card>
           </div>
-        </Container>
-      </section>
-
-            {/* Chart Section */}
-            <section className="py-8 md:py-12">
-        <Container>
-          <h2 className="text-2xl md:text-3xl font-semibold mb-4">Analytics</h2>
-          <ChartDemo />
-        </Container>
-      </section>
-
-      {/* Blog Section */}
-      <section className="py-8 md:py-12">
-        <Container>
-          <Blog7
-            tagline="Blog"
-            heading="Latest Updates"
-            description="Check out our latest news and articles"
-            buttonText="Read More"
-            image="/blog-image.jpg"
-            link="/blog"
-          />
         </Container>
       </section>
     </div>

@@ -14,15 +14,17 @@ export function ModelCard({ model }: { model: AIModel }) {
   };
 
   return (
-    <Card className="hover:shadow-lg transition-shadow">
+    <Card className="hover:shadow-lg transition-all duration-300 hover:scale-[1.02] bg-gradient-to-br from-background to-primary/5">
       <CardHeader>
         <div className="flex justify-between items-start">
-          <CardTitle className="text-xl font-bold">{model.modelName}</CardTitle>
-          <Badge className={getDifficultyColor(model.difficulty)}>
+          <CardTitle className="text-xl font-bold font-display">
+            {model.modelName}
+          </CardTitle>
+          <Badge className={`${getDifficultyColor(model.difficulty)} font-mono`}>
             {model.difficulty}
           </Badge>
         </div>
-        <p className="text-sm text-muted-foreground">{model.tagline}</p>
+        <p className="text-sm text-muted-foreground font-mono">{model.tagline}</p>
       </CardHeader>
       <CardContent>
         <div className="space-y-4">
